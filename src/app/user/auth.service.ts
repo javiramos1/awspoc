@@ -125,7 +125,7 @@ export class AuthService {
      auth.parseCognitoWebResponse(curUrl);
 
     const user = this.getAuthenticatedUser();
-    console.log("user", user);
+    console.log('user', user);
     const obs = Observable.create((observer) => {
       if (!user) {
         observer.next(false);
@@ -154,32 +154,32 @@ export class AuthService {
   }
 
   initCognitoSDK() {
-    var authData = {
+    const authData = {
       ClientId: environment.aws.ClientId, // Your client id here
-      AppWebDomain: environment.aws.AppWebDomain, // Exclude the "https://" part. 
-      TokenScopesArray: ['openid', 'email', 'profile'],// like ['openid','email','phone']...
+      AppWebDomain: environment.aws.AppWebDomain, // Exclude the "https://" part.
+      TokenScopesArray: ['openid', 'email', 'profile'], // like ['openid','email','phone']...
       RedirectUriSignIn: 'http://localhost:4200/home',
       RedirectUriSignOut: 'http://localhost:4200/signout',
       IdentityProvider: 'google',
       UserPoolId: environment.aws.UserPoolId,
       AdvancedSecurityDataCollectionFlag: false
     };
-    var auth = new CognitoAuth(authData);
-    // You can also set state parameter 
-    // auth.setState(<state parameter>);  
+    const auth = new CognitoAuth(authData);
+    // You can also set state parameter
+    // auth.setState(<state parameter>);
     const that = this;
     auth.userhandler = {
 
       onSuccess: function (result) {
-        console.log("Sign in success");
+        console.log('Sign in success');
         that.router.navigate(['/home']);
 
       },
       onFailure: function (err) {
-        console.log("Error!" + err);
+        console.log('Error!' + err);
       }
     };
-  
+
     return auth;
   }
 }

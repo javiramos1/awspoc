@@ -6,9 +6,7 @@
 export const environment = {
   production: false,
   aws : {
-    UserPoolId: '', // AWS Cognito User Pool ID
-    ClientId: '', // AWS Cognito App Client ID
-    AppWebDomain: ''// AWS Cognito Domain namee without https://
+
 
   }
 };

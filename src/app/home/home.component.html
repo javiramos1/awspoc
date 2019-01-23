@@ -8,4 +8,11 @@
     <li *ngFor="let todo of todos">{{todo.todo}}
   
 </ul>
+<p></p>
+ <div class="form-group">
+        <input required type="text" placeholder="Task" [(ngModel)]="todo.todo"/>
+      </div>
+ 
+      <button type="submit" class="btn btn-success" (click)="saveTodo()">Save</button>
+ 
 </div>
